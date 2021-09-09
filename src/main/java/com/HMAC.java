@@ -8,6 +8,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.Locale;
 
 public class HMAC {
 
@@ -16,7 +17,7 @@ public class HMAC {
     private String moves[];
     private String move;
     private byte key[] = new byte[16];
-    private byte hashingMove[] = new byte[16];
+    private byte hashingMove[];
 
     public HMAC(String moves[]) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
         this.moves = moves;

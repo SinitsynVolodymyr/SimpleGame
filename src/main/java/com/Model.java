@@ -1,16 +1,14 @@
 package com;
 
 public class Model {
-    public static int isUserWinner(String userRequest, HMAC hmac, String[] args) {
-        int userMoveId = -1;
+    public static int isUserWinner(int userMoveId, HMAC hmac, String[] args) {
         int compMoveId = -1;
 
         for (int i = 0; i<args.length; i++){
-            if (args[i].equals(userRequest)){userMoveId = i;}
             if (args[i].equals(hmac.getMove())){compMoveId = i;}
         }
 
-        if (userMoveId==-1||compMoveId==-1){
+        if (compMoveId==-1){
             throw new IllegalArgumentException("User or hmac id not found");
         }
 
