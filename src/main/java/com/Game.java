@@ -3,9 +3,7 @@ package com;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class Game {
 
@@ -15,7 +13,14 @@ public class Game {
         int countArgs = args.length;
         if (countArgs >= 3 && countArgs % 2 != 0) {
 
+            HashSet<String> argSet = new HashSet<>(Arrays.asList(args));
+            if (argSet.size()<args.length){
+                    System.out.println("Your arguments are repeated");
+                    System.exit(1);
+            }
+
             HMAC hmac = new HMAC(args);
+            System.out.println("HMAC Algorithm: "+HMAC.CODING);
             System.out.println("HMAC: " + hmac.getHashingMoveAsString().toUpperCase(Locale.ROOT));
             System.out.println("Available moves:");
             int index = 0;

@@ -12,7 +12,7 @@ import java.util.Locale;
 
 public class HMAC {
 
-    private static final String CODING = "HmacSHA256";
+    public static final String CODING = "HmacSHA256";
 
     private String moves[];
     private String move;
