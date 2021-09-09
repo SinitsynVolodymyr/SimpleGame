@@ -1,13 +1,7 @@
 package com;
 
 public class Model {
-    public static int isUserWinner(int userMoveId, HMAC hmac, String[] args) {
-        int compMoveId = -1;
-
-        for (int i = 0; i<args.length; i++){
-            if (args[i].equals(hmac.getMove())){compMoveId = i;}
-        }
-
+    public static int isUserWinner(int userMoveId, int compMoveId, String[] args) {
         if (compMoveId==-1){
             throw new IllegalArgumentException("User or hmac id not found");
         }
@@ -24,7 +18,7 @@ public class Model {
                  else return 1;
             }else{
                 if (compMoveId < userMoveId
-                        && compMoveId > - userOffset) return 1;
+                        && compMoveId >= - userOffset) return 1;
                 else return -1;
             }
 

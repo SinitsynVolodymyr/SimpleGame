@@ -27,7 +27,11 @@ public class Game {
 
             Scanner sc = new Scanner(System.in);
             int userRequest = inputUserRequest(sc, args);
-            int winResult = Model.isUserWinner(userRequest, hmac, args);
+            int compMoveId = -1;
+            for (int i = 0; i<args.length; i++){
+                if (args[i].equals(hmac.getMove())){compMoveId = i;}
+            }
+            int winResult = Model.isUserWinner(userRequest, compMoveId, args);
             System.out.println("Computer move: " + hmac.getMove());
 
             if (winResult == 0) System.out.println("Nobody win!");
@@ -47,8 +51,7 @@ public class Game {
         while (true) {
             String input = sc.next();
             if (input.equals("?")) {
-                //TODO
-                System.out.println("Your help)");
+                System.out.println(HelpTable.generateHelpTable(moves));
             } else {
                 try {
                     int userValue = Integer.parseInt(input);
