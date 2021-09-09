@@ -34,7 +34,7 @@ public class Game {
             int winResult = Model.isUserWinner(userRequest, compMoveId, args);
             System.out.println("Computer move: " + hmac.getMove());
 
-            if (winResult == 0) System.out.println("Nobody win!");
+            if (winResult == 0) System.out.println("DRAW!");
             else if (winResult > 0) System.out.println("You win!");
             else System.out.println("Computer win!");
 
